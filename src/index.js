@@ -43,11 +43,28 @@ angular.module('angularFormlyBootstrapMaterial', ['formly', 'angularBootstrapMat
         }],
         errorMessages: $scope.errors
       }
+    }, {
+      type: "select",
+      key: "frequency",
+      templateOptions: {
+        required: true,
+        label: "Notification frequency",
+        valueProp: "name",
+        options: [{
+          name: "Daily"
+        }, {
+          name: "Weekly"
+        }, {
+          name: "Monthly"
+        }],
+        errorMessages: $scope.errors
+      }
     }]
   })
-  .run(function(formlyConfig, wrappers, input, checkbox, radio) {
+  .run(function(formlyConfig, wrappers, input, checkbox, radio, select) {
     formlyConfig.setWrapper(wrappers);
     formlyConfig.setType(input);
     formlyConfig.setType(checkbox);
     formlyConfig.setType(radio);
+    formlyConfig.setType(select);
   });
