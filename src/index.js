@@ -59,12 +59,28 @@ angular.module('angularFormlyBootstrapMaterial', ['formly', 'angularBootstrapMat
         }],
         errorMessages: $scope.errors
       }
+    }, {
+      type: 'checkboxGroup',
+      key: 'roles',
+      templateOptions: {
+        label: 'Roles',
+        options: [{
+          id: 1,
+          title: "Administrator"
+        }, {
+          id: 2,
+          title: "User"
+        }],
+        valueProp: 'id',
+        labelProp: 'title'
+      }
     }]
   })
-  .run(function(formlyConfig, wrappers, input, checkbox, radio, select) {
+  .run(function(formlyConfig, wrappers, input, checkbox, radio, select, checkboxGroup) {
     formlyConfig.setWrapper(wrappers);
     formlyConfig.setType(input);
     formlyConfig.setType(checkbox);
     formlyConfig.setType(radio);
     formlyConfig.setType(select);
+    formlyConfig.setType(checkboxGroup);
   });
