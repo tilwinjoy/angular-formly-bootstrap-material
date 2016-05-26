@@ -1,0 +1,12 @@
+{
+  "name": "angular-formly-bootstrap-material",
+  "dependencies": {
+    "angular": "^1.5.5",
+    "angular-messages": "1.5.5",
+    "bootstrap": "3.3.6",
+    "bootstrap-material-design": "0.5.9",
+    "angular-bootstrap-material": "abm#^0.1.1",
+    "api-check": "^7.5.5",
+    "angular-formly": "^8.2.1"
+  }
+}
