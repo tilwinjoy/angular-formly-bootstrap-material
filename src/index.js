@@ -28,10 +28,26 @@ angular.module('angularFormlyBootstrapMaterial', ['formly', 'angularBootstrapMat
         errorMessages: $scope.errors
       },
       defaultValue: true,
+    }, {
+      type: 'radio',
+      key: 'premium',
+      templateOptions: {
+        required: true,
+        label: "Payment",
+        options: [{
+          name: "Credit",
+          value: "credit"
+        }, {
+          name: "Net Banking",
+          value: "net"
+        }],
+        errorMessages: $scope.errors
+      }
     }]
   })
-  .run(function(formlyConfig, wrappers, input, checkbox) {
+  .run(function(formlyConfig, wrappers, input, checkbox, radio) {
     formlyConfig.setWrapper(wrappers);
     formlyConfig.setType(input);
     formlyConfig.setType(checkbox);
+    formlyConfig.setType(radio);
   });

@@ -1,0 +1,6 @@
+<label>{{to.label}}</label>
+<div class="radio-group">
+  <div class="radio" ng-repeat="(key, option) in to.options" abm-radio label="{{option[to.labelProp || 'name']}}">
+    <input type="radio" id="{{id + '_'+ $index}}" ng-value="option[to.valueProp || 'value']" ng-model="model[options.key]">
+  </div>
+</div>
