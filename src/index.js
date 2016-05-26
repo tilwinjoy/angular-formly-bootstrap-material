@@ -18,9 +18,20 @@ angular.module('angularFormlyBootstrapMaterial', ['formly', 'angularBootstrapMat
         placeholder: 'something',
         errorMessages: $scope.errors
       }
+    }, {
+      type: 'checkbox',
+      key: 'notify',
+      templateOptions: {
+        required: true,
+        label: 'Notify',
+        size: 'sm',
+        errorMessages: $scope.errors
+      },
+      defaultValue: true,
     }]
   })
-  .run(function(formlyConfig, wrappers, input) {
+  .run(function(formlyConfig, wrappers, input, checkbox) {
     formlyConfig.setWrapper(wrappers);
     formlyConfig.setType(input);
+    formlyConfig.setType(checkbox);
   });
