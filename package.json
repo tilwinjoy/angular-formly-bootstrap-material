@@ -1,0 +1,35 @@
+{
+  "name": "angular-formly-bootstrap-material",
+  "version": "0.0.1",
+  "description": "Bootstrap material design templates for Angular formly",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tilwinjoy/angular-formly-bootstrap-material.git"
+  },
+  "keywords": [
+    "angularjs",
+    "formly",
+    "bootstrap",
+    "material",
+    "design"
+  ],
+  "author": "Tilwin Joy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tilwinjoy/angular-formly-bootstrap-material/issues"
+  },
+  "homepage": "https://github.com/tilwinjoy/angular-formly-bootstrap-material#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-angular-templatecache": "^1.8.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-jsbeautifier": "^2.0.3",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^1.5.3",
+    "merge2": "^1.0.2"
+  }
+}

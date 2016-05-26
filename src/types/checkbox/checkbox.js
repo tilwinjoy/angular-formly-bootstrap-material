@@ -1,8 +1,8 @@
 angular.module('angularFormlyBootstrapMaterial')
-  .factory('checkbox', function() {
-    return {
+  .config(['formlyConfigProvider', function (formlyConfigProvider) {
+    formlyConfigProvider.setType({
       name: 'checkbox',
-      templateUrl: 'src/types/checkbox/checkbox.html',
+      templateUrl: 'checkbox.html',
       wrapper: ['formGroup']
-    }
-  });
+    });
+  }]);

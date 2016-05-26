@@ -1,8 +1,8 @@
 angular.module('angularFormlyBootstrapMaterial')
-  .factory('radio', function() {
-    return {
+  .config(['formlyConfigProvider', function (formlyConfigProvider) {
+    return formlyConfigProvider.setType({
       name: 'radio',
-      templateUrl: 'src/types/radio/radio.html',
+      templateUrl: 'radio.html',
       wrapper: ['formGroup']
-    }
-  });
+    });
+  }]);

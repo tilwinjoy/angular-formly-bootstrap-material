@@ -1,5 +1,5 @@
-angular.module('angularFormlyBootstrapMaterial', ['formly', 'angularBootstrapMaterial'])
-  .controller('testCtrl', function($scope) {
+angular.module('angularFormlyBootstrapMaterialDemo', ['angularFormlyBootstrapMaterial'])
+  .controller('demoCtrl', function($scope) {
     $scope.model = {};
     $scope.errors = {
       required: 'this field is mandatory!'
@@ -75,12 +75,4 @@ angular.module('angularFormlyBootstrapMaterial', ['formly', 'angularBootstrapMat
         labelProp: 'title'
       }
     }]
-  })
-  .run(function(formlyConfig, wrappers, input, checkbox, radio, select, checkboxGroup) {
-    formlyConfig.setWrapper(wrappers);
-    formlyConfig.setType(input);
-    formlyConfig.setType(checkbox);
-    formlyConfig.setType(radio);
-    formlyConfig.setType(select);
-    formlyConfig.setType(checkboxGroup);
   });

@@ -1,7 +1,7 @@
 angular.module('angularFormlyBootstrapMaterial')
-  .factory('wrappers', function() {
-    return {
+  .config(['formlyConfigProvider', function (formlyConfigProvider) {
+    formlyConfigProvider.setWrapper({
       name: 'formGroup',
-      templateUrl: 'src/wrappers/form-group.html'
-    }
-  })
+      templateUrl: 'form-group.html'
+    });
+  }]);

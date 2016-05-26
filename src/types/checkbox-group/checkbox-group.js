@@ -1,12 +1,20 @@
 angular.module('angularFormlyBootstrapMaterial')
-  .factory('checkboxGroup', function() {
-    return {
+  .config(['formlyConfigProvider', function (formlyConfigProvider) {
+    return formlyConfigProvider.setType({
       name: 'checkboxGroup',
-      templateUrl: 'src/types/checkbox-group/checkbox-group.html',
-      wrapper: [],
-      controller: /* @ngInject */ function($scope) {
-        const to = $scope.to;
-        const opts = $scope.options;
+      templateUrl: 'checkbox-group.html',
+      defaultOptions: {
+        noFormControl: false,
+        ngModelAttrs: {
+          required: {
+            attribute: '',
+            bound: ''
+          }
+        }
+      },
+      controller: /* @ngInject */ ["$scope", function controller($scope) {
+        var to = $scope.to;
+        var opts = $scope.options;
         $scope.multiCheckbox = {
           checked: [],
           change: setModel
@@ -34,9 +42,7 @@ angular.module('angularFormlyBootstrapMaterial')
           var valid;
 
           if ($scope.to.required) {
-            valid = angular.isArray($scope.model[opts.key]) &&
-              $scope.model[opts.key].length > 0 &&
-              expressionValue;
+            valid = angular.isArray($scope.model[opts.key]) && $scope.model[opts.key].length > 0 && expressionValue;
 
             $scope.fc.$setValidity('required', valid);
           }
@@ -44,7 +50,7 @@ angular.module('angularFormlyBootstrapMaterial')
 
         function setModel() {
           $scope.model[opts.key] = [];
-          angular.forEach($scope.multiCheckbox.checked, (checkbox, index) => {
+          angular.forEach($scope.multiCheckbox.checked, function (checkbox, index) {
             if (checkbox) {
               $scope.model[opts.key].push(to.options[index][to.valueProp || 'value']);
             }
@@ -60,15 +66,15 @@ angular.module('angularFormlyBootstrapMaterial')
         }
 
         if (opts.expressionProperties && opts.expressionProperties['templateOptions.required']) {
-          $scope.$watch(function() {
+          $scope.$watch(function () {
             return $scope.to.required;
-          }, function(newValue) {
+          }, function (newValue) {
             checkValidity(newValue);
           });
         }
 
         if ($scope.to.required) {
-          var unwatchFormControl = $scope.$watch('fc', function(newValue) {
+          var unwatchFormControl = $scope.$watch('fc', function (newValue) {
             if (!newValue) {
               return;
             }
@@ -76,6 +82,6 @@ angular.module('angularFormlyBootstrapMaterial')
             unwatchFormControl();
           });
         }
-      }
-    }
-  });
+	      }]
+    })
+  }]);

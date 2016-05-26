@@ -1,8 +1,8 @@
 angular.module('angularFormlyBootstrapMaterial')
-  .factory('input', function() {
-    return {
+  .config(['formlyConfigProvider', function (formlyConfigProvider) {
+    return formlyConfigProvider.setType({
       name: 'input',
-      templateUrl: 'src/types/input/input.html',
+      templateUrl: 'input.html',
       wrapper: ['formGroup']
-    }
-  });
+    });
+  }]);
